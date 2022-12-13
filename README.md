@@ -4,11 +4,11 @@
 | -------------  | --- |
 | :sparkles: Name        | **Javascript Logic**
 | :label: Build with | html, css, javascript
-| :rocket: URL         | http://javascript-logic.vercel.app
+| :rocket: URL         | http://logic-js.vercel.app
 | :fire: Challenge     | http://7daysofcode.io/matricula/logica-programacao
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://via.placeholder.com/1200x500.png?text=imagem+lindona+do+meu+projeto#vitrinedev)
+![](https://i.imgur.com/hZcdu9n.png#vitrinedev)
 
 ## About The Project
 <img src="http://img.shields.io/static/v1?label=Development&message=Finished&color=GREEN&style=for-the-badge"/>
