@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../icon-js.png">
+</head>
+<body>
+    <div class="cabecalho">
+        <h2 class="titulo">Listas</h2>
+        <a class="btn__voltar" href="../index.html">Voltar para Página Inicial</a>
+    </div>
+    <section class="sobre">
+        <h2 class="subtitulo">Sobre o exercício</h2>
+        <p>
+            Criar um programa que perguntará se o usuário deseja adicionar uma comida na sua lista de compras, e o usuário deve poder responder com sim ou não.
+            <br>Em seguida, ele perguntará qual comida o usuário deseja inserir, e o usuário digitará o nome dela, como por exemplo batata.
+            <br>Depois, ele deverá perguntar em qual categoria essa comida se encaixa, com algumas opções já pré-definidas, como frutas, laticínios, etc...
+            <br>Por fim, caso o usuário não queira mais adicionar nada na lista de compras e responder não na primeira pergunta, ele irá exibir uma lista com todos os itens agrupados, da seguinte forma:
+            <br><br>Lista de compras:
+            <br>    Frutas: banana, tomate
+            <br>    Laticínios: leite vegetal, 
+            <br>    Congelados: lasanha
+            <br>    Doces: chiclete e bala
+        </p>
+    </section>
+    <section class="secao">
+        <div>
+            <h3 class="subtitulo">Código</h3>
+            <div class="codigo">
+            <pre><code>
+function listaCompras(){
+    let listaCategorias = ['frutas','laticinios','congelados','doces']
+    let listaItens = [['banana'],['leite'],['pão-de-queijo'],['chocolate']]
+    let index
+    
+    let inicio = prompt('Olá\nVocê deseja adicionar um item na sua lista de compras?\nDigite 1 para SIM ou 2 para NÃO')
+    if(inicio == 1){
+        while(true){
+            let item = prompt('Digite o item que deseja acrescentar')
+            let categoria = prompt(`Em qual categoria esse item se encaixa:\n${listaCategorias}`)
+            if(listaCategorias.includes(categoria)){
+                index = listaCategorias.indexOf(categoria)
+                listaItens[index].push(item)
+            }
+            alert(`Lista de compras:\n${listaCategorias.map(categoria => {
+                return `${categoria}: ${listaItens[listaCategorias.indexOf(categoria)]}\n`
+                }).join('')}
+            `)
+            
+            let continua = prompt('Deseja acrescentar mais itens?\nDigite 1 para SIM ou 2 para NÃO')
+            if(continua != 1) break
+        }
+    }
+    alert('Até mais')
+}
+            </code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="subtitulo">Testar Código</h3>
+            <button class="btn">Testar</button>
+        </div>
+    </section>
+
+    <footer>
+        <span class="creditos">Desenvolvido por Natália Oliveira</span>
+        <br><br>
+        <a href="https://github.com/noliv197/7-days-of-code"><img class="logo__creditos" src="../github.png" alt="Logo Github"></a>
+        <a href="http://www.linkedin.com/in/natália-m-oliveira"><img class="logo__creditos" src="../linkedin.png" alt="Logo Linkedin"></a>
+    </footer>
+    <script src="../js/lista.js"></script>
+</body>
+</html>

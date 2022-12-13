@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Advinhação</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../icon-js.png">
+</head>
+<body>
+    <div class="cabecalho">
+        <h2 class="titulo">Jogo de Advinhação</h2>
+        <a class="btn__voltar" href="../index.html">Voltar para Página Inicial</a>
+    </div>
+    <section class="sobre">
+        <h2 class="subtitulo">Sobre o exercício</h2>
+        <p>
+            Criar um programa que comece com um valor específico pré-definido entre 0 a 10 para o número que você vai adivinhar.<br>
+            Em seguida, o programa vai perguntar para você qual o valor que você deseja chutar e, caso você acerte, ele irá te parabenizar. Caso erre, ele vai te dar mais 2 tentativas.<br>          
+            No fim, caso você não acerte nenhuma vez, ele vai imprimir qual era o número inicial.    
+        </p>
+    </section>
+    <section class="secao">
+        <div>
+            <h3 class="subtitulo">Código</h3>
+            <div class="codigo">
+            <pre><code>
+function jogo(){
+    let sorteio =  (Math.random() * 10).toFixed(0)
+    alert('Bem-vindo ao jogo de adivinhação.\nVocê tem três tentativas para acertar o número de 0 a 10 sorteado\nBoa sorte!')
+    
+    let chute = parseInt(prompt("Digite sua primeira tentativa"))
+    if(chute == sorteio){
+        alert('Parabéns você acertou de primeira! ;)')
+    }
+    else{
+        chute = prompt(`Tente novamente!\nVocê tem mais 2 tentativas`)
+        for (let index = 0; index < 2; index++) {
+            if(chute == sorteio){
+                alert('Parabéns você acertou! ;)')
+                break
+            }
+            else{
+                chute = prompt(`Tente novamente!\nVocê tem mais ${1 - index}`)
+                if(chute == sorteio) continue
+            }
+            alert(`Não foi dessa vez.\nO número sorteado era ${sorteio}`)
+            break
+        }
+    }
+}
+            </code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="subtitulo">Testar Código</h3>
+            <button class="btn">Testar</button>
+        </div>
+    </section>
+
+    <footer>
+        <span class="creditos">Desenvolvido por Natália Oliveira</span>
+        <br><br>
+        <a href="https://github.com/noliv197/7-days-of-code"><img class="logo__creditos" src="../github.png" alt="Logo Github"></a>
+        <a href="http://www.linkedin.com/in/natália-m-oliveira"><img class="logo__creditos" src="../linkedin.png" alt="Logo Linkedin"></a>
+    </footer>
+    <script src="../js/jogo.js"></script>
+</body>
+</html>

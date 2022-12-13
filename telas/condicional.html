@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicional</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../icon-js.png">
+</head>
+<body>
+    <div class="cabecalho">
+        <h2 class="titulo">Condicional</h2>
+        <a class="btn__voltar" href="../index.html">Voltar para Página Inicial</a>
+    </div>
+    <section class="sobre">
+        <h2 class="subtitulo">Sobre o exercício</h2>
+        <p>Fazer com que o código imprima as informações de maneira correta e sem erros sobre comparação de valores e tipos de variáveis </p>
+    </section>
+    <section class="secao">
+        <div>
+            <h3 class="subtitulo">Código</h3>
+            <div class="codigo">
+            <pre><code>
+function compara(var1, var2){
+    if(var1 == var2 && typeof(var1) === typeof(var2)){
+        console.log(`As variáveis ${var1} e ${var2} tem o mesmo valor e o mesmo tipo`)
+    }
+    else if (var1 != var2 && typeof(var1) === typeof(var2)){
+        console.log(`As variáveis ${var1} e ${var2} tem o mesmo tipo, mas valores diferentes`)
+    }
+    else if (var1 == var2 && typeof(var1) != (var2)){
+        console.log(`As variáveis ${var1} e ${var2} tem o mesmo valor mas, tipos diferentes`)
+    }
+    else{
+        console.log(`As variáveis ${var1} e ${var2} tem valor e tipo diferentes`)
+    }
+}
+            </code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="subtitulo">Chamada da Função</h3>
+            <div class="codigo">
+            <pre><code>
+let numeroUm = 1
+let numUm = 1
+let stringUm = "1"
+let numeroTrinta = 30
+let stringTrinta = "30"
+
+compara(numeroUm,numUm)
+compara(numeroUm,numeroTrinta)
+compara(numeroUm,stringUm)
+compara(numeroUm,stringTrinta)
+            </code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="subtitulo">Output</h3>
+            <div class="codigo">
+                <script src="../js/condicional.js"></script>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="creditos">Desenvolvido por Natália Oliveira</span>
+        <br><br>
+        <a href="https://github.com/noliv197/7-days-of-code"><img class="logo__creditos" src="../github.png" alt="Logo Github"></a>
+        <a href="http://www.linkedin.com/in/natália-m-oliveira"><img class="logo__creditos" src="../linkedin.png" alt="Logo Linkedin"></a>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../icon-js.png">
+</head>
+<body>
+    <div class="cabecalho">
+        <h2 class="titulo">Loop</h2>
+        <a class="btn__voltar" href="../index.html">Voltar para Página Inicial</a>
+    </div>
+    <section class="sobre">
+        <h2 class="subtitulo">Sobre o exercício</h2>
+        <p>
+            Criar os destinos possíveis de um jogo, em que o usuário consiga escolher:<br>
+            1. Se quer seguir para área de Front-End ou seguir para a área de Back-End.<br>
+            2. Caso esteja na área de Front-End, se quer aprender React ou aprender Vue. Caso esteja na área de Back-End, poderá aprender C# ou aprender Java. <br>
+            3. Depois, independente das escolhas anteriores, o usuário poderá escolher entre seguir se especializando na área escolhida ou seguir se desenvolvendo para se tornar Fullstack. Você deve exibir na tela uma mensagem específica para cada escolha.<br>
+            4. Por fim, pergunte quais são as tecnologias nas quais a pessoa gostaria de se especializar ou de conhecer. Aqui, a pessoa pode responder N tecnologias, uma de cada vez. Então, enquanto ela continuar respondendo ok para a pergunta: "Tem mais alguma tecnologia que você gostaria de aprender?", continue apresentando para ela o Prompt, para que ela complete o nome da tecnologia em questão. E, logo depois, apresente uma mensagem comentando algo sobre a linguagem inserida.<br>
+            O importante é que a pessoa que estiver jogando possa sempre escolher qual decisão tomar para conseguir aprender e se desenvolver na área de programação.<br>
+            Além disso, também é essencial que, ao final do jogo, ela possa inserir quantas tecnologias quiser na lista de aprendizado.
+        </p>
+    </section>
+    <section class="secao">
+        <div>
+            <h3 class="subtitulo">Código</h3>
+            <div class="codigo">
+            <pre><code>
+function loop(){
+    const lista = []
+    let desenvolvedor 
+    let curso
+    let jornada
+    let respostaDois
+    
+    let respostaUm = prompt("Você quer seguir para área de Frontend ou seguir para a área de Backend?\nResponda 1 para Frontend e 2 para Backend")
+    if(respostaUm != 1 && respostaUm != 2) {
+        while(true){
+            respostaUm = prompt("Valor inválido!\nResponda 1 para Frontend e 2 para Backend")
+            if (respostaUm == 1 || respostaUm == 2) break
+        }
+    }
+
+    if(respostaUm == 1){
+        desenvolvedor = "Front-end"
+        respostaDois = prompt("Você quer aprender React ou Vue?\nResponda 1 para React e 2 para Vue")
+        if (respostaDois == 1 || respostaDois == 2){
+            curso = retornaCurso(desenvolvedor, respostaDois)
+        }
+        else{
+            while(true){
+                respostaDois = prompt("Valor inválido!\nResponda 1 para React e 2 para Vue")
+                if (respostaDois == 1 || respostaDois == 2) {
+                    curso = retornaCurso(desenvolvedor, respostaDois)
+                    break
+                }
+            }
+        }
+    }
+    else if(respostaUm == 2){
+        desenvolvedor = "Back-end"
+        respostaDois = prompt("Você quer aprender C# ou Java?\nResponda 1 para C# e 2 para Java")
+        if (respostaDois == 1 || respostaDois == 2){
+            curso = retornaCurso(desenvolvedor, respostaDois)
+        }
+        else{
+            while(true){
+                respostaDois = prompt("Valor inválido!\nResponda 1 para C# e 2 para Java")
+                if (respostaDois == 1 || respostaDois == 2) {
+                    curso = retornaCurso(desenvolvedor, respostaDois)
+                    break
+                }
+            }
+        }
+    }
+    
+    let respostaTres = prompt("Você deseja seguir se especializando na área ou pretende seguir se desenvolvendo para se tornar Fullstack?\nResponda 1 para Especialização na Área e 2 para Desenvolvimento Fullstack")
+    if(respostaTres != 1 && respostaTres != 2) {
+        while(true){
+            respostaTres = prompt("Valor inválido!\nResponda 1 para Especialização e 2 para Fullstack")
+            if (respostaTres == 1 || respostaTres == 2) break
+        }
+    }
+
+    if (respostaTres == 1) jornada = 'Especialização'
+    else if (respostaTres == 2) jornada = 'Fullstack'
+    
+    let tecnologia = prompt("Quais tecnologias você tem interesse de se especializar?")
+    lista.push(tecnologia)
+    let continua = prompt("Tem mais alguma tecnologia que deseja acrescentar?\nSe SIM digite ok, se NÃO digite fim")
+
+    while(true){
+        if(continua == 'ok'){
+            lista.push(prompt(`Sua lista atual: ${lista}\nDigite outras tecnologias que deseja aprender`))
+            continua = prompt("Tem mais alguma tecnologia que deseja acrescentar?\nSe SIM digite ok, se NÃO digite fim")
+        }
+        else{
+            alert(`Então você quer se tornar desenvolvedor ${desenvolvedor} começando a trabalhar com ${curso}\nPara essa jornada de ${jornada} estude bastante todas as tecnologias que você tem interesse:\n${lista}\n\nNão se esqueça de sempre ir atrás de novidades!\nBoa jornada!`)
+            break
+        }
+    }
+}
+            </code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="subtitulo">Testar Código</h3>
+            <button class="btn">Testar</button>
+        </div>
+    </section>
+
+    <footer>
+        <span class="creditos">Desenvolvido por Natália Oliveira</span>
+        <br><br>
+        <a href="https://github.com/noliv197/7-days-of-code"><img class="logo__creditos" src="../github.png" alt="Logo Github"></a>
+        <a href="http://www.linkedin.com/in/natália-m-oliveira"><img class="logo__creditos" src="../linkedin.png" alt="Logo Linkedin"></a>
+    </footer>
+    <script src="../js/loop.js"></script>
+</body>
+</html>

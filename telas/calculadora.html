@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../icon-js.png">
+</head>
+<body>
+    <div class="cabecalho">
+        <h2 class="titulo">Calculadora</h2>
+        <a class="btn__voltar" href="../index.html">Voltar para Página Inicial</a>
+    </div>
+    <section class="sobre">
+        <h2 class="subtitulo">Sobre o exercício</h2>
+        <p>
+            Criar calculadora onde cada operação deverá ser uma função diferente no código.
+            <br>Primeiramente, o usuário deverá escolher uma opção de operação impressa pelo programa na tela.
+            <br>Depois, ele deverá inserir os dois valores que deseja utilizar, e o programa imprimirá o resultado da operação em questão.
+            <br>As opções disponíveis deverão ser: soma, subtração, multiplicação, divisão, e sair. Nessa última, o programa deverá parar de ser executado, mostrando uma mensagem "Até a próxima".
+        </p>
+    </section>
+    <section class="secao">
+        <div>
+            <h3 class="subtitulo">Código</h3>
+            <div class="codigo">
+            <pre><code>
+function soma(a,b){
+    return a + b
+}
+function subtrai(a,b){
+    return a - b
+}
+function divisao(a,b){
+    if(b == 0){
+        return 'Não é possivel dividir por 0'
+    }
+    else return a / b
+}
+function multiplica(a,b){
+    return a * b
+}
+function pegaNumeros(){
+    let num1 = parseFloat(prompt('Digite o primeiro número da operação'))
+    while(true){
+        if(isNaN(num1)) {
+            num1 = parseFloat(prompt('Valor inválido. Digite um número para operação'))
+            continue
+        }else break
+    }
+    let num2 = parseFloat(prompt('Digite o segundo número da operação'))
+    while(true){
+        if(isNaN(num2)) {
+            num2 = parseFloat(prompt('Valor inválido. Digite um número para operação'))
+            continue
+        }else break
+    }
+    return [num1,num2]
+}
+function calculadora(){
+    let operacao
+    let numeros
+    let resultado
+    let continua
+    
+    alert('Bem-vindo a calculadora Javascript')
+    while(true){
+        operacao = prompt('Escolha uma das operações:\nsoma, subtração, multiplicação, divisão ou sair')
+        if(operacao == 'soma'){
+            numeros = pegaNumeros()
+            resultado = soma(numeros[0],numeros[1])
+            alert(`Resultado da ${operacao}:\n${numeros[0]} + ${numeros[1]} = ${resultado}`)
+        }
+        else if(operacao == 'subtração' || operacao == 'subtracao'){
+            numeros = pegaNumeros()
+            resultado = subtrai(numeros[0],numeros[1])
+            alert(`Resultado da ${operacao}:\n${numeros[0]} - ${numeros[1]} = ${resultado}`)
+        }
+        else if(operacao == 'multiplicação' || operacao == 'multiplicacao'){
+            numeros = pegaNumeros()
+            resultado = multiplica(numeros[0],numeros[1])
+            alert(`Resultado da ${operacao}:\n${numeros[0]} * ${numeros[1]} = ${resultado}`)
+        }
+        else if(operacao == 'divisão' || operacao == 'divisao'){
+            numeros = pegaNumeros()
+            resultado = divisao(numeros[0],numeros[1])
+            alert(`Resultado da ${operacao}:\n${numeros[0]} / ${numeros[1]} = ${resultado}`)
+        }
+        else if(operacao == 'sair' || operacao == 'SAIR') break
+        else {
+            alert('Valor inválido!')
+            continue
+        }
+
+        continua = prompt('Deseja fazer outras operações?\nDigite SIM para continuar ou NÃO para sair ')
+        if(continua == 'sim' || continua == 'SIM') continue
+        else break
+    }
+    alert('Até a próxima!')
+}
+            </code></pre>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="subtitulo">Testar Código</h3>
+            <button class="btn">Testar</button>
+        </div>
+    </section>
+
+    <footer>
+        <span class="creditos">Desenvolvido por Natália Oliveira</span>
+        <br><br>
+        <a href="https://github.com/noliv197/7-days-of-code"><img class="logo__creditos" src="../github.png" alt="Logo Github"></a>
+        <a href="http://www.linkedin.com/in/natália-m-oliveira"><img class="logo__creditos" src="../linkedin.png" alt="Logo Linkedin"></a>
+    </footer>
+    <script src="../js/calculadora.js"></script>
+</body>
+</html>
